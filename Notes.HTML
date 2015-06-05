@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Project Stage 3 by  Akim George</title>
+
+  <link rel="stylesheet" href="stylesheets/main.css">
+
+</head>
+
+  <body>
+    <div class="table-of-contents">
+      <h1>Table of Contents</h1>
+      <p style="color:#475904;font-size:20px;margin: 0px 5px;"><b>Unit 1: The Web and Structured Documents</b></p>  
+        <ol>
+          <li><a href="#lesson-1-1"> Lesson 1: Web Basics and HTML</a>
+              <ul>
+                <li><a href="#lesson-1-1-1">How the Web Work</a></li>
+                <li><a href="#lesson-1-1-2">HTML</a></li>
+                <li><a href="#lesson-1-1-3">Tags and Elements</a></li>
+                <li><a href="#lesson-1-1-4">Inline vs. Block Elements</a></li>
+               </ul>
+          </li>
+          <li><a href="#lesson-1-2"> Lesson 2: Using HTML to Create Structured Documents</a>
+              <ul>
+                <li><a href="#lesson-1-2-1">The "tree-like structure" of HTML</a></li>
+                <li><a href="#lesson-1-2-2">Text Editors</a></li>
+              </ul>          
+           </li>
+            <li><a href="#lesson-1-3">Lesson 3: Addition of CSS to HTML Document</a>
+             <ul>
+               <li><a href="#lesson-1-3-1">CSS</a></li>
+               <li><a href="#lesson-1-3-2">Benefits of CSS Avoiding Repetition</a></li>
+             </ul>
+            </li>
+        </ol>
+      <p style="color:#475904;font-size:20px;margin: 0px 5px;"><b>Unit 2: Telling Computers What to Do</b></p>
+       <ol>
+            <li><a href="#lesson-2-1">Lesson 1: Intro to Programming </a>
+              <ul>
+                <li><a href="#lesson-2-1-1">Computers</a></li>
+                <li><a href="#lesson-2-1-2">Programming Language</a></li>
+                <li><a href="#lesson-2-1-3">Complier</a></li>
+                <li><a href="#lesson-2-1-4">Python</a></li>
+                <li><a href="#lesson-2-1-5">Debugging</a></li>
+              </ul>
+            </li>
+            <li><a href="#lesson-2-2">Lesson 2: Variables and Strings </a>
+              <ul>
+                <li><a href="#lesson-2-2-1">Define Variable in Python</a></li>
+                <li><a href="#lesson-2-2-2">Meaning of Assigning a Varible and How to.</a></li>
+                <li><a href="#lesson-2-2-3">Difference between 5+2=7 and test_variable=7</a></li>
+                <li><a href="#lesson-2-2-4">Ways Variables are Useful</a></li>
+                <li><a href="#lesson-2-2-5">Difference between 4 + 4 and "4" + "4"</a></li>
+                <li><a href="#lesson-2-2-6">Strings</a></li>
+              </ul>
+            </li>
+            <li><a href="#lesson-2-3">Lesson 3: Input -> Function -> Outout</a>
+              <ul>
+                <li><a href="#lesson-2-3-1">What is a Function?</a></li>
+                <li><a href="#lesson-2-3-2">The Difference in Making and Using a Function</a></li>
+                <li><a href="#lesson-2-3-3">How do Functions Help Programmers Avoid Repetition?</a></li>
+                <li><a href="#lesson-2-3-4">What Happens if a Function Does Not Have a Return Statement?</a></li>
+              </ul>
+            </li>
+            <li><a href="#lesson-2-4">Lesson 4: Decisions and Repititon</a>
+              <ul>
+                <li><a href="#lesson-2-4-1">If and While</a></li>
+                <li><a href="#lesson-2-4-2">Guide to Solving Large Problems</a></li>
+              </ul>
+            </li>
+        </ol>
+      <p style="color:#475904;font-size:20px;margin: 0px 5px;"><b>Unit 3: Power of Abstraction</b></p>
+        <ol>
+          <li><a href="#lesson-3-1">Lesson 1: Object-oriented Programming</a>
+            <ul>
+              <li><a href="#lesson-3-1-1">Abstarction</a></li>
+              <li><a href="#lesson-3-1-2">Object-oriented Programming(OOP)</a></li>
+              <li><a href="#lesson-3-1-3">Object-oriented Programming and CSS</a></li>
+              <li><a href="#lesson-3-1-4">Modular Programming</a></li>
+            </ul>
+          </li>
+          <li><a href="#lesson-3-2">Lesson 2: Classes and Objects</a>
+            <ul>
+              <li><a href="#lesson-3-2-1">Classes vs Objects</a></li>
+              <li><a href="#lesson-3-2-2">Method Overriding</a></li>
+              <li><a href="#lesson-3-2-3">Libraries</a></li>
+            </ul>
+          </li>
+          <li><a href="#lesson-3-3">Unit 3 Glossary</a>
+            <ul>
+              <li><a href="#lesson-3-3-1">Key Words</a></li>
+            </ul>
+          </li>
+        </ol>
+        <p style="color:#475904;font-size:20px;margin: 0px 5px;"><b>User Comments</b></p>
+        <ul>
+          <li><a href="#user-comments">Comments</a></li>
+        </ul>
+    </div>
+
+    <h1>
+      Key Learnings
+    </h1>
+    <h2 style="color:#475904;">Unit 1: The Web and Structured Documents</h2>
+      <div class="lesson">
+        <h3 id="lesson-1-1">Lesson 1: Web Basics and HTML</h3>
+
+          <div class="concept" id="lesson-1-1-1">
+            <div class="concept-title">How the Web Works</div>
+            <div class="concept-description"> 
+              <p>The <em>Internet</em> is a global system of interconnected 
+              computer networks that interchange data. When an individual goes to 
+              a website like www.espn.go.com, their computer sends a <em>HTTP Request</em> 
+              to a <em>server.</em> The server finds the appropriate HTML document and sends
+              it back to the user's computer where a web browser interprets the page and
+              displays it on the user's screen. Watch this
+              <a href="https://www.udacity.com/course/viewer/#!/c-nd000/l-3873828673/e-48329854/m-48480496">video</a>
+              for a better explanation.</p>              
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-1-1-2">
+            <div class="concept-title">HTML</div>
+            <div class="concept-description">
+              <p>HTML is an ancornym that stands for <em>Hypertest Markup Language</em>. HTML documents make
+              up the majority of the content on the web. HTML documents contain <em>text content</em> which
+              describes "what you see" and <em>markup</em> which describes "how it looks". This 
+              <a href="https://www.udacity.com/course/viewer/#!/c-nd000/l-3873828673/m-48724340">video</a>
+              provides a good overview.</p>            
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-1-1-3">
+            <div class="concept-title">Tags and Elements</div>
+            <div class="concept-description"> 
+              <p>HTML documents are made of HTML <b>elements</b>. When writing HTML, we tell browsers the
+              type of each element by using HTML <b>tags</b>. This 
+              <a href="https://www.udacity.com/course/viewer/#!/c-nd000/l-3873828673/m-48723444">video</a>
+              differentiates the two.</p>
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-1-1-4">
+            <div class="concept-title">Inline vs. Block Elements</div>
+            <div class="concept-description">
+              <p>HTML elements are either <b>inline</b> or <b>block</b>. Block elements form an "invisible box" 
+              around the content inside of them. </p>
+            </div>
+          </div>
+      </div>
+
+      <div class="lesson">
+        <h3 id="lesson-1-2">Lesson 2: Using HTML to Create Structured Documents</h3>
+
+        <div class="concept" id="lesson-1-2-1">
+          <div class="concept-title">The "tree-like structure" of HTML</div>
+          <div class="concept-description">
+            <p>The <b>DOM</b> (Document Object Model) is a way to refer to HTML elements as objects. The 
+            "tree-like structure" of the page comes about because elements can be <em>nested</em> within
+            each other. In a browser, this structure shows up as a series of nested boxes. There are 
+            boxes inside of boxes inside of boxes, and so on...</p>
+          </div>
+        </div>
+
+        <div class="concept" id="lesson-1-2-2">
+          <div class="concept-title">Text Editors (for programming)</div>
+          <div class="concept-description">
+            <p> Programmers use special text editors (i.e. Sublime Text). Some text editors will automatically
+            generate a closing HTML tag when you write an opening tag evidently making the programmer's job a
+            little bit easier.</p> 
+          </div> 
+        </div>
+      </div>
+
+      <div class="lesson">
+        <h3 id="lesson-1-3">Lesson 3: Addition of CSS to HTML Document</h3>
+        <div class="concept" id="lesson-1-3-1">
+          <div class="concept-title">CSS</div>
+          <div class="concept-description">
+            <p>CSS stands for Cascading Style Sheets and it is code written to control the "style" of the HTML
+            elements. You can include CSS styling by:</p>
+              <BLOCKQUOTE>
+              1. Write CSS in the "head" of your HTML.<br>
+              2. Link your HTML to a separate CSS file. (This method is more organized when working on larger projects).
+              </BLOCKQUOTE>
+          </div>
+        </div>
+
+        <div class="concept" id="lesson-1-3-2">
+          <div class="concept-title">Benefits of CSS Avoiding Repetition</div>
+          <div class="concept-description">
+            <p>Using CSS to avoid repetition is very important for a number of reasons. The programmer becomes
+            more <b>efficient</b> because they do not have to write the same thing multiple times. Hence there is less code
+            to write and it's more readable. If the programmer is copying and pasting certain style attributes into
+            many HTML elements it can possible lead to errors when the programmer decides to modify something.
+            </p>
+            <p>
+            With CSS, the programmer can assign multiple elements the same class and then specify a style for that class.
+            in only one location. Giving every one of those element the same <b>Consistent</b> look and being able 
+            to easily modify the style and avoiding repetition.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="color:#475904;">Unit 2: Telling Computer What to Do</h2>
+      <div class="lesson">
+        <h3 id="lesson-2-1">Lesson 1: Intro To Programming</h3>
+
+        <div class="concept" id="lesson-2-1-1">
+          <div class="concept-title">Computers</div>
+          <div class="concept-description"><p>Computers can be programmed to carry out a set of instructions.</P> <p>A computer program, is an <em>exact</em> sequence of instructions, written to perform a specified task with a computer. Some examples of computer programs are web browsers and simple print statements.</p>
+          </div>
+        </div>
+
+        <div class="concept" id="lesson-2-1-2">
+          <div class="concept-title">Programming Language</div>
+          <div class="concept-description">
+            <p>Programming is the core of Computer Science. A programming language is a formal constructed language designed to communicate instructions to a computer. Examples of programming language are Python, C++, Java and SQL.</p>
+          </div>
+        </div>
+
+        <div class="concept" id="lesson-2-1-3">
+          <div class="concept-title">Compiler</div>
+          <div class="concept-description">
+            <p>Compiler - a program that producers another program. It transforms source code written in a programming language (the source language) into another computer language (the target language).</p>
+          </div>
+        </div>
+
+        <div class="concept" id="lesson-2-1-4">
+          <div class="concept-title">Python</div>
+          <div class="concept-description">
+            <p>Python is a programming language. When you write Python code and press "Run", a Python Interpreter converts the code you wrote as a set of instructions that the computer itself can understand and execute.</p>
+          </div>
+        </div>
+
+        <div class="concept" id="lesson-2-1-5">
+          <div class="concept-title">Debugging</div>
+          <div class="concept-description">
+            <p>Debugging is a methodical process of finding and reducing the number of bugs, or defects, in a computer program, to eveidently have it behave as expected.</p>
+            <p>Here are some simply steps to follow while debugging your program:</p>
+              <dl>
+                <dt>Examine error messages when programs crash</dt>
+                <dd>The last line of Python Tracebacks will tell you what went wrong. Reading backwards from there will tell you more about where the problem occurred.</dd>
+                <dt>Work from example code</dt>
+                <dd>If your modified code doesn't work, comment it out and do step-by-step modifications to the example code until it does what you want.</dd>
+                <dt>Make sure examples work</dt>
+                <dd>Just because you find example code doesn't mean it will work in your system. Check the example code you're using to make sure it behaves the way you expect.</dd>
+                <dt>Check (print) intermediate results</dt>
+                <dd>When your code doesn't crash, but doesn't behave as expected, add print statements to your program to see where in the code things stop behaving correctly.</dd>
+                <dt>Keep and compare old versions</dt>
+                <dd>When you have a working version of your code, save it before you add to the code. This will give you something to go back to if you introduce too many new bugs.</dd>
+              </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <h3 id="lesson-2-2">Lesson 2: Variables and Strings</h3>
+
+          <div class="concept" id="lesson-2-2-1">
+            <div class="concept-title">Define Variable in Python</div>
+            <div class="concept-description">
+              <p>A variable gives names value that may change. It gives a <em>name</em> to a <em>value</em>. If <span class="code">test_variable</span> is a variable with a value of  <span class="code">3</span>, then the following code would print out  <span class="code">9</span>:</p>
+              <p>
+                <span class="code">print test_variable * test_variable</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-2-2-2">
+            <div class="concept-title">Meaning of Assigning a Varible and How to do so</div>
+            <div class="concept-description">
+              <p>A programmer can assign a value to a variable by writing the following code:</p>
+              <p><span class = "code">test_variable = 10</span></p>
+              <p> The variable <span class = "code">test_variable</span> will have the value of <span class = "code">10</span>. The programmer can change the value of the variable by re-assigning it to a different value at any time.</p>
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-2-2-3">
+              <div class="concept-title">Difference between <span class = "code">5+2=7</span> and <span class = "code">test_variable=7</span></div>
+              <div class="concept-description">
+                <p>The equal sign in the line, <span class = "code">5+2=7</span> means "is the same as".</p>
+                <p> The equal sign in the line, <span class = "code">test_variable=7</span> means "takes the value of".</p>
+              </div>
+          </div>
+
+          <div class="concept" id="lesson-2-2-4">
+            <div class="concept-title">Ways Variables are Useful</div>
+            <div class="concept-description">
+              <p>There are many ways variables prove to be useful to programmers:</p>
+            <ul>
+              <li>The value of important data can be stored using variables.</li>
+              <li>They improve the code readability by using names that make sense to humans.</li>
+              <li>They give us a way to change the value of something (like in the line <span class="code">counter = counter + 1</span></li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-2-2-5">
+            <div class="concept-title">Difference between <span class = "code">4 + 4</span> and <span class = "code">"4" + "4"</span></div>
+            <div class="concept-description">
+              <p>In Python, <span class = "code">4</span> is a number while <span class = "code">"4"</span> is a string.</p>
+              <p>The code <span class="code">4 + 4</span> would give <span class="code">8</span>.</p>
+              <p>The code <span class="code">"4" + "4"</span> would give <span class="code">"44"</span>.</p>
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-2-2-6">
+            <div class="concept-title">Strings</div>
+            <div class="concept-description">
+              <p>A string is a sequence of characters surrounding by quotes. A string can be surrouded by single quotes (') or double quotes (").The only requirement is if it starts with a sigle or double quote it needs to end with a single or double quote respectively.</p>
+              <p>Python does not allow you to <em>concatenate</em> a string and an interger. However, strings can be multiplied. The following code:</p>
+              <p><span class = "code">print '!' * 3</span></p>
+              <p> Will display: <span class = "code">!!!</span></p>
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-2-2-7">
+            <div class="concept-title">Indexing String</div>
+            <div class="concept-description">
+              <p>Python uses square brackets to extracts parts of the string. Characters of the strings are indexed starting with the number zero.</p>
+              <p>For example:</p>
+              <p><span class = "code">test_variable = 'Udacity'</span></p>
+              <p><span class = "code">print test_variable[0]</span> will display <span class = "code">U</span></p>
+              <p><span class = "code">print test_variable[3:6]</span> will display <span class = "code">city</span></p>
+            </div>
+          </div>
+      </div>
+
+      <div class="lesson">
+        <h3 id="lesson-2-3">Lesson 3: Input -> Function -> Output</h3>
+
+          <div class="concept" id="lesson-2-3-1">
+            <div class="concept-title">What is a Function?</div>
+            <div class="concept-description">
+              <p>Functions usually "take in" data, process it, and "return" a result. Once a function is written, it can be used over and over and over again. Functions can be "called" from the inside of other functions.</p>
+              <p> For example, a function named <span class="code">cubed</span> might take a number as input and produce the cube of that number as output.</p>
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-2-3-2">
+            <div class="concept-title">The Difference in Making and Using a Function</div>
+            <div class="concept-description">
+              <p>Functions are made by starting a line of code with the keyword <span class="code">def</span> and then giving a function name followed by the function <b>parameters</b> in parentheses. These parameters will eventually be replaced by actual values when the function is used (called).</p>
+              <p>In the "body" of the function, we write the code that specifies what to do with the input parameters. For example the following code could be the definition of a function called <span class="code">cubed</span>:</p>
+                <div class="python_script">def cubed(x): <br>
+                  <span class="indent">answer = x * x * x</span><br>
+                  <span class="indent">return answer</span>
+                </div>
+                <p>To use a function, we write the name of the function followed by the value(s) we want to give it in parentheses. Like this:</p>
+                <div class="python_script">print cubed(3) <br>
+                  >>>27
+                </div>
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-2-3-3">
+            <div class="concept-title">How do Functions Help Programmers Avoid Repetiton?</div>
+            <div class="concept-description">
+              <p>Functions are tools that programmers can create and reuse time and time again. Once you've defined a function once, you never have to define it again.</p>
+            </div>
+          </div>
+
+          <div class="concept" id="lesson-2-3-4">
+            <div class="concept-title">What happens if a Fucntion Does Not Have a Return Statement?</div>
+            <div class="concept-description">
+              <p>The <span class="code">return</span> keyword tells Python exactly what the function should produce as output. If a function doesn't have a <span class="code">return</span> statement, then you'll get behavior like this: </p>
+                <div class="python_script">
+                  def minus_four(x): <br>
+                  <span class="indent">answer = x - 4</span> <br>
+                  <br>
+                  new_number = minus_four(7)<br>
+                  print new_number<br>
+                  >>>None
+                </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="lesson">
+        <h3 id="lesson-2-4">Lesson 4: Decisions and Repititon</h3>
+
+          <div class="concept" id="lesson-2-4-1">
+            <div class="concept-title">If and While</div>
+            <div class="concept-description"><p>Control flow statements (like 'if' and 'else') let us execute 
+              different blocks of code depending on some condition. While loops let us repeat a certain block of code many times until a certain condition is met.</p>
+              <p><b>if, then, else</b>: These three Python keywords let us tell Python what code we want it to execute in different situations.</p>
+              <p><b>while loops</b>: A while loop will repeat the indented block of code beneath it as long as the condition on the first line (right after 'while') is true.</p></div>
+          </div>
+
+          <div class="concept" id="lesson-2-4-2">
+            <div class="concept-title">Guide to Solving Large Problems</div>
+            <div class="concept-description">
+              <ol style="font-weight:lighter;">
+                  <li><b>Dont Panic!</b> Try and Understand the Problem</li>
+                  <li>What are the inputs</li>
+                  <li>What are the output</li>
+                  <li>Work through some examples by hand</li>
+                  <li>Simple mecahnical solution</li>
+                  <li>Develop incrementally and test as you go</li>
+              </ol>
+            </div>
+          </div>
+      </div>
+
+      <h2 style="color:#475904;">Unit 3: Power of Abstraction</h2>
+      <div class="lesson">
+        <h3 id="lesson-3-1">Lesson 1: Object-oriented Programming</h3>
+        <div class="concept" id="lesson-3-1-1">
+            <div class="concept-title">Abstraction</div>
+            <div class="concept-description">
+              <p>Abstraction is the <em>hiding</em> of details behind documentation in programming. 
+              <p>The idea of abstraction is really powerful in programming.</p>
+            </div>
+        </div>
+        <div class="concept" id="lesson-3-1-2">
+            <div class="concept-title">Object-oriented Programming(OOP)</div>
+            <div class="concept-description">
+              <p>Object-oriented programming (OOP) is an approach common to many languages. It is based on the concept of "objects" rather than "actions", which are data structures that contain <span class = "highlight">data</span>, in the form of fields, often known as <em>attributes</em>; and code, in the form of procedures, often known as <span class = "highlight">methods</span>.</p>
+              <p>The first step in OOP is to identify all the objects the programmer wants to manipulate and how they relate to each other, an exercise often known as data modeling.</p>
+              <p>Once an object has been identified,  it is generalized as a class of objects which defines the kind of data it contains and any logic sequences that can manipulate it.</p>
+              <p>Each <em>distinct</em> logic sequence is known as a method.</p>
+            </div>
+        </div>
+        <div class="concept" id="lesson-3-1-3">
+            <div class="concept-title">Object-oriented Programming and CSS</div>
+            <div class="concept-description">
+              <p>As with any object-based coding method, the purpose of object-oriented CSS is to encourage code reuse and, ultimately, faster and more efficient stylesheets that are easier to add to and maintain.</p>
+              <p>This basically means that you have a standard "object" (an HTML structure). Then, you have CSS classes that you apply to objects, which define the design and flow of the object.</p>
+            </div>
+        </div>
+        <div class="concept" id="lesson-3-1-4">
+            <div class="concept-title">Modular Programming</div>
+            <div class="concept-description">
+              <p>A technique that emphasizes separating the functionality of a program into independent, interchangeable modules, such that each contains everything necessary to execute only one aspect of the desired functionality.</p>
+              <p>Modular programming is closely related to structured programming and <span class = "highlight">object-oriented programming</span>, all having the <em>same</em> goal of facilitating construction of large software programs and systems by decomposition into smaller pieces.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <h3 id="lesson-3-2">Lesson 2: Classes and Objects</h3>
+        <div class="concept" id="lesson-3-2-1">
+            <div class="concept-title">Classes vs Objects</div>
+            <div class="concept-description">
+              <p>A <b>class</b> can be thought of as a blueprint of a building. It contains infomation of the building.The same blueprint can be used to build multiple buildings.</p>
+              <p>And you can think of its <b>objects</b> as examples or instances of that blueprint.</p>
+            </div>
+        </div>
+        <div class="concept" id="lesson-3-2-2">
+            <div class="concept-title">Method Overriding</div>
+            <div class="concept-description">
+              <p>A language feature that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its superclasses or parent classes.</p>
+              <p>The implementation in the subclass overrides (replaces) the implementation in the superclass by providing a method that has same name, same parameters or signature, and same return type as the method in the parent class.</p>
+              <p>The version of a method that is executed will be determined by the object that is used to <em>invoke</em> it.</p>
+            </div>
+        </div>
+        <div class="concept" id="lesson-3-2-3">
+            <div class="concept-title">Libraries</div>
+            <div class="concept-description">
+              <p>An 'external library' is just a library that someone has written that does not come packaged with that particular language (For example Twillio is an external library for Python).</p>
+              <p><b>from __ import __:</b> Writing the code like '<span class="code">from twillio.rest import TwilioRestClient</span>', you gain access to TwilioRestClient without having to import all the extra stuff that is in twillio.rest.</p>
+            </div>
+        </div>
+       </div> 
+
+       <div class="lesson">
+        <h3 id="lesson-3-3">Unit 3 Glossary</h3>
+        <div class="concept" id="lesson-3-3-1">
+            <div class="concept-title">Keywords</div>
+            <div class="concept-description">
+              <dl>
+                <dt>Class</dt>
+                <dd>Definitions for the data format and available procedures for a given type or class of object; may also contain data and procedures (known as class methods) themselves.</dd>
+                <dt>Class Variable</dt>
+                <dd>A variable defined in a class of which a single copy exists, regardless of how many instances of the class exist.</dd>
+                <dt>Constructor</dt>
+                <dd>A specific type of method in the class that uses the key word self to creates objects.</dd>
+                <dt>Inheritance</dt>
+                <dd>A property of OOP that makes it possible to define subclasses of data objects that share some or all of the main characteristics of the Parent data class.</dd>
+                <dt>Instance Methods</dt>
+                <dd>A function define in a class and associated with an instance.They usually get or set information about the instance they are attached to.</dd>
+                <dt>Instance Variables</dt>
+                <dd>Alson known as attributes - data associated with a specific instance. Unique to an object and can be access using the self keyword inside the class and the instance name outside the class.</dd>
+                <dt>Object</dt>
+                <dd>Structures that contain both data and procedures. Each object is said to be an instance of a particular class.</dd>
+                <dt>Self</dt>
+                <dd>A keyword... self or the instance in question.</dd>
+              </dl>
+            </div>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <h3 id="user-comments">User Comments</h3>
+        <div class="concept">
+          <form action="/submission?submission_name={{ submission_name }}" method="post">
+            <lable>Name: <input name="submission_name" value="{{ submission_name }}"></lable>
+            <br><br>
+            <div>
+              <lable>Comment: <textarea name="content" rows="5" cols="60"></textarea></lable>
+            </div>
+            <input type="submit" value="Submit Comment">
+          </form>
+          
+          {% for comment in comments %}
+            {% if comment.content %}
+              <b> {{ submission_name}} </b> wrote:
+            {% else %}
+              An anonymous person wrote:
+            {% endif %}
+            <blockquote>{{ comment.content }}</blockquote>
+          {% endfor %}
+        </div>        
+      </div>
+
+
+      <div>
+      <p><a href="http://jigsaw.w3.org/css-validator/check/referer">
+      <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" /></a>
+      </p>
+      </div>
+
+  </body>
+</html>
+{% endautoescape %}
