@@ -500,18 +500,29 @@
       <div class="lesson">
         <h3 id="user-comments">User Comments</h3>
         <div class="concept">
-          <form action="/submission?submission_name={{ submission_name }}" method="post">
-            <label>Name: <input name="submission_name"></label>
-            <br><br>
+
+          <a href="{{ url|safe }}">{{ url_linktext }}</a>
+
+          <form>Section Title:
+            <input value="{{ section_name }}" name="section_name">
+            <input type="submit" value="switch">
+          </form>
+          <br><br>
+          <form action="/section?section_name={{ section_name }}" method="post">
             <div>
-              <label>Comment: <textarea name="comment" rows="5" cols="60"></textarea></label>
+              <label>Comment: <textarea name="content" rows="5" cols="60"></textarea></label>
             </div>
             <input type="submit" value="Submit Comment">
           </form>
-          
+          <hr>
+
           {% for content in comment %}
-            {% if comment.content %}
-              <b> {{ submission_name }} </b> wrote:
+            {% if comment.author %}
+              <b>{{ comment.author.email }}
+                {% if user and user.user_id() == comment.author.identity %}
+                  (You)
+                {% endif %}
+              </b> wrote:
             {% else %}
               An anonymous person wrote:
             {% endif %}
@@ -519,7 +530,6 @@
           {% endfor %}
         </div>        
       </div>
-
 
       <div>
       <p><a href="http://jigsaw.w3.org/css-validator/check/referer">
