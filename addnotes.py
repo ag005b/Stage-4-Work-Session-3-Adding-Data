@@ -14,23 +14,33 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     autoescape=True)
 
 
-DEFAULT_SUBMISSION_NAME = 'Anonymous Submission'
+DEFAULT_SECTION_NAME = 'General_Submission'
 
 # We set a parent key on the 'Comment' to ensure that they are all
 # in the same entity group. Queries across the single entity group
 # will be consistent.  However, the write rate should be limited to
 # ~1/second.
 
-def submission_key(submission_name=DEFAULT_SUBMISSION_NAME):
-    """Constructs a Datastore key for a Comment entity.
+def section_key(section_name=DEFAULT_SECTION_NAME):
+    """Constructs a Datastore key for a Section entity.
 
-    We use submission_name as the key.
+    We use section_name as the key.
     """
-    return ndb.Key('Submission', submission_name)
+    return ndb.Key('Section', section_name)
 
 # [START comment]
+# These are the objects that will represent our Author and our Post. We're using
+# Object Oriented Programming to create objects in order to put them in Google's
+# Database. These objects inherit Googles ndb.Model class.
+class Author(ndb.Model):
+  """Sub model for representing an author."""
+  identity = ndb.StringProperty(indexed=True)
+  name = ndb.StringProperty(indexed=False)
+  email = ndb.StringProperty(indexed=False)
+
 class Comment(ndb.Model):
     """A main model for representing an individual Guestbook entry."""
+    author = ndb.StructuredProperty(Author)
     content = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
@@ -55,18 +65,32 @@ class Handler(webapp2.RequestHandler):
 
 
 # [START main_page]
-class MainPage(Handler):
+class MainPage(webapp2.RequestHandler):
     def get(self):
-        submission_name = self.request.get('submission_name', DEFAULT_SUBMISSION_NAME)
+        section_name = self.request.get('section_name', DEFAULT_SECTION_NAME)
+        if section_name == DEFAULT_SECTION_NAME.lower(): section_name = DEFAULT_SECTION_NAME
 
-        comments_query = Comment.query(
-            ancestor=submission_key(submission_name)).order(-Comment.date)
 
-        comment = comments_query.fetch(10)
+        comments_query = Comment.query(ancestor=section_key(section_name)).order(-Comment.date)
+
+        comments = comments_query.fetch(10)
+
+        # If a person is logged in to Google's Services
+        user = users.get_current_user()
+        if user:
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Logout'
+        else:
+            user = 'Anonymous Poster'
+            url = users.create_login_url(self.request.uri)
+            url_linktext = 'Login'
         
         template_values = {
-            'comment': comment,
-            'submission_name': urllib.quote_plus(submission_name),
+            'user': user,
+            'comment': comments,
+            'section_name': urllib.quote_plus(section_name),
+            'url': url,
+            'url_linktext': url_linktext,
         }
 
         template = JINJA_ENVIRONMENT.get_template('notes.html')
@@ -75,20 +99,29 @@ class MainPage(Handler):
 # [END main_page]
 
 # [START Comment Submission]
-class Submission(webapp2.RequestHandler):
+class Section(webapp2.RequestHandler):
     def post(self):
         # We set a parent key on the 'Comment' to ensure that they are all
         # in the same entity group. Queries across the single entity group
         # will be consistent.  However, the write rate should be limited to
         # ~1/second. 
-        submission_name = self.request.get('submission_name', DEFAULT_SUBMISSION_NAME)
+        section_name = self.request.get('section_name', DEFAULT_SECTION_NAME)
         
-        comment = Comment(parent=submission_key(submission_name))
+        comment = Comment(parent=section_key(section_name))
 
-        comment.content = self.request.get("comment")
+        if users.get_current_user():
+            comment.author = Author(
+                identity=users.get_current_user().user_id(),
+                email=users.get_current_user().email())
+
+        # Get the content from our request parameters, in this case, the message
+        # is in the parameter 'content'
+        comment.content = self.request.get('content')
+
+        # Write to the Google Database
         comment.put()
 
-        query_params = {'submission_name': submission_name}
+        query_params = {'section_name': section_name}
         self.redirect('/?' + urllib.urlencode(query_params))
 
 #[END Comment Submission]
@@ -96,7 +129,5 @@ class Submission(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainPage), 
-    ('/submission', Submission),
+    ('/section', Section),
 ], debug=True)
-
-
