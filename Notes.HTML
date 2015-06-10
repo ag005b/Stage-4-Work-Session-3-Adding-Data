@@ -501,17 +501,17 @@
         <h3 id="user-comments">User Comments</h3>
         <div class="concept">
           <form action="/submission?submission_name={{ submission_name }}" method="post">
-            <lable>Name: <input name="submission_name" value="{{ submission_name }}"></lable>
+            <label>Name: <input name="submission_name"></label>
             <br><br>
             <div>
-              <lable>Comment: <textarea name="content" rows="5" cols="60"></textarea></lable>
+              <label>Comment: <textarea name="comment" rows="5" cols="60"></textarea></label>
             </div>
             <input type="submit" value="Submit Comment">
           </form>
           
-          {% for comment in comments %}
+          {% for content in comment %}
             {% if comment.content %}
-              <b> {{ submission_name}} </b> wrote:
+              <b> {{ submission_name }} </b> wrote:
             {% else %}
               An anonymous person wrote:
             {% endif %}
