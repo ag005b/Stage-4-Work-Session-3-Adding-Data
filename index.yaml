@@ -1,5 +1,5 @@
 indexes:
-- kind: Comment
+- kind: Section
   ancestor: yes
   properties:
   - name: date
