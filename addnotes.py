@@ -24,7 +24,7 @@ DEFAULT_SUBMISSION_NAME = 'Anonymous Submission'
 def submission_key(submission_name=DEFAULT_SUBMISSION_NAME):
     """Constructs a Datastore key for a Comment entity.
 
-    We use guestbook_name as the key.
+    We use submission_name as the key.
     """
     return ndb.Key('Submission', submission_name)
 
@@ -62,11 +62,10 @@ class MainPage(Handler):
         comments_query = Comment.query(
             ancestor=submission_key(submission_name)).order(-Comment.date)
 
-        comments = comments_query.fetch(10)
-#        self.render('notes.html')
+        comment = comments_query.fetch(10)
         
         template_values = {
-            'comment': comments_query,
+            'comment': comment,
             'submission_name': urllib.quote_plus(submission_name),
         }
 
@@ -86,7 +85,7 @@ class Submission(webapp2.RequestHandler):
         
         comment = Comment(parent=submission_key(submission_name))
 
-        comment.content = self.request.get("content")
+        comment.content = self.request.get("comment")
         comment.put()
 
         query_params = {'submission_name': submission_name}
